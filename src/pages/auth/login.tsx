@@ -1,5 +1,7 @@
+import Login from "@/features/auth/components/Login";
+
 const login = () => {
-  return <div>Enter</div>;
+  return <Login />;
 };
 
 export default login;

@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 
-import Button from "@/components/Button/Button";
+import Button from "@/components/Elements/Button/Button";
 import GithubIcon from "@/components/Icon/GithubIcon";
 import HomeIcon from "@/components/Icon/HomeIcon";
 import TopPageLyout from "@/components/Layout/TopPageLyout";
