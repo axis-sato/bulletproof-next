@@ -1,6 +1,9 @@
 /* eslint-disable */
 // prettier-ignore
 export const pagesPath = {
+  app: {
+    $url: (url?: { hash?: string }) => ({ pathname: '/app' as const, hash: url?.hash })
+  },
   auth: {
     login: {
       $url: (url?: { hash?: string }) => ({ pathname: '/auth/login' as const, hash: url?.hash })

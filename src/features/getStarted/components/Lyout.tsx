@@ -1,7 +1,8 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import Head from "next/head";
 import React, { ReactNode } from "react";
 
-import AppLayout from "@/components/Elements/Layout/Layout";
+import { APP_NAME } from "@/constants/appName";
 
 type Props = {
   headingMessage: string;
@@ -10,14 +11,17 @@ type Props = {
   githubRepoButton: ReactNode;
 };
 
-const TopPageLyout = ({
+const Lyout = ({
   headingMessage,
   message,
   getStartedButton,
   githubRepoButton,
 }: Props) => {
   return (
-    <AppLayout title="home">
+    <Flex height="100vh" background="gray.50">
+      <Head>
+        <title>{APP_NAME}-home</title>
+      </Head>
       <Flex align="center" justify="center" width="100%">
         <Flex direction="column" align="center">
           <Box p="2" mb="6">
@@ -35,8 +39,8 @@ const TopPageLyout = ({
           </Flex>
         </Flex>
       </Flex>
-    </AppLayout>
+    </Flex>
   );
 };
 
-export default TopPageLyout;
+export default Lyout;

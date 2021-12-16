@@ -5,7 +5,7 @@ import React from "react";
 import Button from "@/components/Elements/Button/Button";
 import GithubIcon from "@/components/Icon/GithubIcon";
 import HomeIcon from "@/components/Icon/HomeIcon";
-import TopPageLyout from "@/components/Layout/TopPageLyout";
+import Lyout from "@/features/getStarted/components/Lyout";
 import { pagesPath } from "@/lib/$path";
 
 const Home: NextPage = () => {
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   const handleStart = () => router.push(pagesPath.auth.login.$url());
 
   return (
-    <TopPageLyout
+    <Lyout
       headingMessage="Bulletproof Next"
       message="Showcasing Best Practices For Building Next.js Applications"
       getStartedButton={
