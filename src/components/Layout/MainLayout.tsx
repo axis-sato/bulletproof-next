@@ -141,7 +141,7 @@ const MainLayout = ({ children, title }: MainLayoutProps) => {
   const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
 
   return (
-    <>
+    <Box bg="gray.100" h="100vh">
       <Head>
         <title>
           {APP_NAME}
@@ -164,7 +164,7 @@ const MainLayout = ({ children, title }: MainLayoutProps) => {
       <Box ml={variants?.navigation === "sidebar" ? SIDEBAR_W : 0}>
         {children}
       </Box>
-    </>
+    </Box>
   );
 };
 
