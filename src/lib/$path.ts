@@ -2,6 +2,12 @@
 // prettier-ignore
 export const pagesPath = {
   app: {
+    discussions: {
+      $url: (url?: { hash?: string }) => ({ pathname: '/app/discussions' as const, hash: url?.hash })
+    },
+    users: {
+      $url: (url?: { hash?: string }) => ({ pathname: '/app/users' as const, hash: url?.hash })
+    },
     $url: (url?: { hash?: string }) => ({ pathname: '/app' as const, hash: url?.hash })
   },
   auth: {

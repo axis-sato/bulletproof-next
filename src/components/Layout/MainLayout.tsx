@@ -16,7 +16,10 @@ import {
   Center,
   Spacer,
 } from "@chakra-ui/react";
+import clsx from "clsx";
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { ReactElement, ReactNode } from "react";
 import {
   FiAlignJustify,
@@ -27,6 +30,7 @@ import {
 import { FiUser } from "react-icons/fi";
 
 import { APP_NAME } from "@/constants/appName";
+import { pagesPath } from "@/lib/$path";
 
 type HeaderProps = {
   onShowSidebar: () => void;
@@ -69,16 +73,18 @@ const SidebarButton = ({
   onClick,
   children,
   icon,
+  isActive,
 }: {
   onClick: () => void;
   children: ReactNode;
   icon: ReactElement;
+  isActive: boolean;
 }) => {
   return (
     <Button
       as="a"
       cursor="pointer"
-      bg="gray.800"
+      bg={clsx({ "gray.900": isActive, "gray.800": !isActive })}
       _hover={{ bg: "gray.700" }}
       color="gray.300"
       onClick={onClick}
@@ -91,19 +97,33 @@ const SidebarButton = ({
   );
 };
 
-const SidebarContent = ({ onClick }: { onClick: () => void }) => (
-  <VStack>
-    <SidebarButton onClick={onClick} icon={<FiHome />}>
-      Home
-    </SidebarButton>
-    <SidebarButton onClick={onClick} icon={<FiMessageSquare />}>
-      About
-    </SidebarButton>
-    <SidebarButton onClick={onClick} icon={<FiUsers />}>
-      Contact
-    </SidebarButton>
-  </VStack>
-);
+const SidebarContent = ({ onClick }: { onClick: () => void }) => {
+  const router = useRouter();
+  const navigation = [
+    { name: "Dashboard", to: pagesPath.app.$url(), icon: <FiHome /> },
+    {
+      name: "Discussions",
+      to: pagesPath.app.discussions.$url(),
+      icon: <FiMessageSquare />,
+    },
+    { name: "Users", to: pagesPath.app.users.$url(), icon: <FiUsers /> },
+  ];
+  return (
+    <VStack>
+      {navigation.map((item) => (
+        <Link key={item.name} href={item.to} passHref>
+          <SidebarButton
+            isActive={router.pathname === item.to.pathname}
+            onClick={onClick}
+            icon={item.icon}
+          >
+            {item.name}
+          </SidebarButton>
+        </Link>
+      ))}
+    </VStack>
+  );
+};
 
 const Sidebar = ({ isOpen, variant, onClose }: SidebarProps) => {
   return variant === "sidebar" ? (
