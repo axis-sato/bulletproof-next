@@ -14,6 +14,7 @@ import {
   useBreakpointValue,
   useBoolean,
   Center,
+  Spacer,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { ReactElement, ReactNode } from "react";
@@ -23,6 +24,7 @@ import {
   FiMessageSquare,
   FiUsers,
 } from "react-icons/fi";
+import { FiUser } from "react-icons/fi";
 
 import { APP_NAME } from "@/constants/appName";
 
@@ -33,18 +35,24 @@ type HeaderProps = {
 
 const Header = ({ showSidebarButton = true, onShowSidebar }: HeaderProps) => {
   return (
-    <Flex bg="white" p={4} shadow="md" justifyContent="center">
-      <Box flex="1">
-        {showSidebarButton && (
-          <IconButton
-            aria-label="open side drawer"
-            icon={<FiAlignJustify />}
-            colorScheme="blackAlpha"
-            onClick={onShowSidebar}
-          />
-        )}
-      </Box>
-      <Box flex="1" />
+    <Flex bg="white" px={4} py={2} shadow="md" justifyContent="center">
+      {showSidebarButton && (
+        <IconButton
+          aria-label="open side drawer"
+          icon={<FiAlignJustify />}
+          colorScheme="blackAlpha"
+          onClick={onShowSidebar}
+        />
+      )}
+      <Spacer />
+      <Box
+        as={FiUser}
+        cursor={"pointer"}
+        size="48px"
+        rounded={50}
+        bg="gray.100"
+        p="7px"
+      />
     </Flex>
   );
 };
