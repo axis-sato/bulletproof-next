@@ -15,6 +15,10 @@ import {
   useBoolean,
   Center,
   Spacer,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
 } from "@chakra-ui/react";
 import clsx from "clsx";
 import Head from "next/head";
@@ -31,6 +35,40 @@ import { FiUser } from "react-icons/fi";
 
 import { APP_NAME } from "@/constants/appName";
 import { pagesPath } from "@/lib/$path";
+
+const UserNavigation = () => {
+  const router = useRouter();
+  const userNavigation = [
+    {
+      name: "Your Profile",
+      onClick: () => router.push(pagesPath.app.profile.$url()),
+    },
+    {
+      name: "Log out",
+      onClick: () => console.log("ログアウト"),
+    },
+  ];
+  return (
+    <Menu>
+      <MenuButton
+        as={IconButton}
+        boxSize={"45px"}
+        fontSize={"30px"}
+        aria-label="Options"
+        icon={<FiUser />}
+        rounded={50}
+        bg="gray.100"
+      />
+      <MenuList>
+        {userNavigation.map((nav) => (
+          <MenuItem key={nav.name} onClick={nav.onClick}>
+            {nav.name}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
+  );
+};
 
 type HeaderProps = {
   onShowSidebar: () => void;
@@ -49,14 +87,7 @@ const Header = ({ showSidebarButton = true, onShowSidebar }: HeaderProps) => {
         />
       )}
       <Spacer />
-      <Box
-        as={FiUser}
-        cursor={"pointer"}
-        size="48px"
-        rounded={50}
-        bg="gray.100"
-        p="7px"
-      />
+      <UserNavigation />
     </Flex>
   );
 };

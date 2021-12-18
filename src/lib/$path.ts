@@ -5,6 +5,9 @@ export const pagesPath = {
     discussions: {
       $url: (url?: { hash?: string }) => ({ pathname: '/app/discussions' as const, hash: url?.hash })
     },
+    profile: {
+      $url: (url?: { hash?: string }) => ({ pathname: '/app/profile' as const, hash: url?.hash })
+    },
     users: {
       $url: (url?: { hash?: string }) => ({ pathname: '/app/users' as const, hash: url?.hash })
     },
