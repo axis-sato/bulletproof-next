@@ -19,6 +19,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Heading,
 } from "@chakra-ui/react";
 import clsx from "clsx";
 import Head from "next/head";
@@ -220,7 +221,10 @@ const MainLayout = ({ children, title }: MainLayoutProps) => {
         />
       </Box>
 
-      <Box ml={variants?.navigation === "sidebar" ? SIDEBAR_W : 0}>
+      <Box ml={variants?.navigation === "sidebar" ? SIDEBAR_W : 0} p="6">
+        <Box>
+          <Heading fontSize={"2xl"}>{title}</Heading>
+        </Box>
         {children}
       </Box>
     </Box>
