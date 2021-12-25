@@ -1,6 +1,6 @@
 export const USER_ROLE_ADMIN = "ADMIN" as const;
 export const USER_ROLE_USER = "USER" as const;
-type UserRole = typeof USER_ROLE_ADMIN | typeof USER_ROLE_USER;
+export type UserRole = typeof USER_ROLE_ADMIN | typeof USER_ROLE_USER;
 type User = { name: string; role: UserRole };
 
 export const useAuth = () => {

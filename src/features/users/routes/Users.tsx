@@ -1,7 +1,13 @@
+import UserList from "../components/UserList";
+
 import MainLayout from "@/components/Layout/MainLayout";
 
 const Users = () => {
-  return <MainLayout title="ユーザ一覧">ユーザ一覧</MainLayout>;
+  return (
+    <MainLayout title="Users">
+      <UserList mt="5" />
+    </MainLayout>
+  );
 };
 
 export default Users;
