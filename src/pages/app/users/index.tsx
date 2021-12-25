@@ -1,4 +1,4 @@
-import Users from "@/features/users/components/Users";
+import Users from "@/features/users/routes/Users";
 
 const UsersPage = () => {
   return <Users />;

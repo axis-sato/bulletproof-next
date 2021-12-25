@@ -1,4 +1,4 @@
-import Profile from "@/features/profile/components/Profile";
+import Profile from "@/features/profile/routes/Profile";
 
 const profile = () => {
   return <Profile />;

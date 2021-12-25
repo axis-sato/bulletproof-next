@@ -1,4 +1,4 @@
-import Dashboard from "@/features/misc/components/Dashboard";
+import Dashboard from "@/features/misc/routes/Dashboard";
 
 const DashboardPage = () => {
   return <Dashboard />;

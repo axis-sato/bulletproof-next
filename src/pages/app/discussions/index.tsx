@@ -1,4 +1,4 @@
-import Discussions from "@/features/discussions/components/Discussions";
+import Discussions from "@/features/discussions/routes/Discussions";
 
 const DiscussionsPage = () => {
   return <Discussions />;
