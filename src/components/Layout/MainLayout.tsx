@@ -51,7 +51,7 @@ const UserNavigation = () => {
     },
   ];
   return (
-    <Menu>
+    <Menu id="user-navigation" isLazy>
       <MenuButton
         as={IconButton}
         boxSize={"45px"}
