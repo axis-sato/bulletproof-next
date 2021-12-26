@@ -20,6 +20,7 @@ import {
   MenuItem,
   MenuList,
   Heading,
+  forwardRef,
 } from "@chakra-ui/react";
 import clsx from "clsx";
 import Head from "next/head";
@@ -101,21 +102,18 @@ type SidebarProps = {
   variant: "drawer" | "sidebar";
 };
 
-const SidebarButton = ({
-  onClick,
-  children,
-  icon,
-  isActive,
-}: {
-  onClick: () => void;
-  children: ReactNode;
-  icon: ReactElement;
-  isActive: boolean;
-}) => {
+const SidebarButton = forwardRef<
+  {
+    onClick: () => void;
+    children: ReactNode;
+    icon: ReactElement;
+    isActive: boolean;
+  },
+  "button"
+>(({ onClick, children, icon, isActive }, ref) => {
   return (
     <Button
-      as="a"
-      cursor="pointer"
+      ref={ref}
       bg={clsx({ "gray.900": isActive, "gray.800": !isActive })}
       _hover={{ bg: "gray.700" }}
       color="gray.300"
@@ -127,7 +125,7 @@ const SidebarButton = ({
       {children}
     </Button>
   );
-};
+});
 
 const SidebarContent = ({ onClick }: { onClick: () => void }) => {
   const router = useRouter();
