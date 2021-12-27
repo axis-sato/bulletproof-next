@@ -219,11 +219,17 @@ const MainLayout = ({ children, title }: MainLayoutProps) => {
         />
       </Box>
 
-      <Box ml={variants?.navigation === "sidebar" ? SIDEBAR_W : 0} p="6">
+      <Box
+        as="main"
+        ml={variants?.navigation === "sidebar" ? SIDEBAR_W : 0}
+        p="6"
+        flex={"1"}
+        overflowY={"auto"}
+      >
         <Box>
           <Heading fontSize={"2xl"}>{title}</Heading>
         </Box>
-        {children}
+        <Box>{children}</Box>
       </Box>
     </Box>
   );
