@@ -1,12 +1,35 @@
-import { Table, Thead, Tr, Th, Tbody, Td, TableProps } from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+  TableProps,
+  Flex,
+} from "@chakra-ui/react";
 
+import { useUsers } from "../api/getUsers";
 import { useUsersTable } from "../hooks/useUsersTable";
+
+import Spinner from "@/components/Elements/Spinner/Spinner";
 
 type Props = TableProps;
 
 const UserList = (props: Props) => {
+  const { users, isLoading } = useUsers();
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useUsersTable();
+    useUsersTable(users ?? []);
+
+  if (isLoading)
+    return (
+      <Flex h="100" justify="center" align="center">
+        <Spinner />
+      </Flex>
+    );
+
+  if (!users) return null;
 
   return (
     <Table

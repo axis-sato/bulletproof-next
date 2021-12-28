@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { useTable, Column } from "react-table";
 
-import { UserRole, USER_ROLE_ADMIN, USER_ROLE_USER } from "@/hooks/useAuth";
+import { UserRole } from "@/hooks/useAuth";
+import { User } from "@/lib/api/aspida/@types";
 
 type UserTableRow = {
   firstName: string;
@@ -11,39 +12,14 @@ type UserTableRow = {
   createdAt: Date;
 };
 
-export const useUsersTable = () => {
+export const useUsersTable = (users: User[]) => {
   const data: UserTableRow[] = useMemo(
-    () => [
-      {
-        firstName: "Masahiko",
-        lastName: "Sato",
-        email: "c8112002@gmail.com",
-        role: USER_ROLE_ADMIN,
-        createdAt: new Date(2021, 0, 1, 0, 0, 0),
-      },
-      {
-        firstName: "Paolo",
-        lastName: "Maldini",
-        email: "paolo@example.com",
-        role: USER_ROLE_USER,
-        createdAt: new Date(2021, 0, 1, 0, 0, 0),
-      },
-      {
-        firstName: "Ricardo",
-        lastName: "Kaka",
-        email: "ricky@example.com",
-        role: USER_ROLE_USER,
-        createdAt: new Date(2021, 0, 1, 0, 0, 0),
-      },
-      {
-        firstName: "Filippo",
-        lastName: "Inzaghi",
-        email: "pippo@example.com",
-        role: USER_ROLE_USER,
-        createdAt: new Date(2021, 0, 1, 0, 0, 0),
-      },
-    ],
-    []
+    () =>
+      users.map((user) => ({
+        ...user,
+        createdAt: new Date(user.createDate),
+      })),
+    [users]
   );
 
   const columns: ReadonlyArray<Column<UserTableRow>> = useMemo(
