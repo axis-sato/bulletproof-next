@@ -1,4 +1,4 @@
-import schema from "@/api/openapi.json";
+import schema from "../../docs/api/openapi.json";
 
 const components = {
   UsersResponse:

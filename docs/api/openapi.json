@@ -92,7 +92,7 @@
               "type": "object",
               "properties": {
                 "users": {
-                  "type": ["string", "array"],
+                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/User"
                   }
