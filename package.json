@@ -16,7 +16,8 @@
     "prepare": "husky install",
     "aspida:rm": "rm -rf ./src/lib/api/aspida",
     "aspida:build": "openapi2aspida",
-    "api:build": "run-s aspida:rm aspida:build"
+    "api:build": "run-s aspida:rm aspida:build",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",
@@ -24,6 +25,7 @@
     "@chakra-ui/react": "^1.7.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@next/bundle-analyzer": "^12.0.7",
     "axios": "^0.24.0",
     "clsx": "^1.1.1",
     "framer-motion": "^4",
