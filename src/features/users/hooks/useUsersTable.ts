@@ -53,7 +53,7 @@ export const useUsersTable = () => {
         accessor: "firstName",
       },
       {
-        Header: "LASTNAME NAME",
+        Header: "LAST NAME",
         accessor: "lastName",
       },
       {
