@@ -14,7 +14,9 @@
     "check-types": "tsc --project tsconfig.json --pretty --noEmit",
     "validate": "run-p check-types && lint-staged",
     "prepare": "husky install",
-    "api:build": "rm -rf ./src/lib/api && openapi2aspida"
+    "aspida:rm": "rm -rf ./src/lib/api/aspida",
+    "aspida:build": "openapi2aspida",
+    "api:build": "run-s aspida:rm aspida:build"
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",

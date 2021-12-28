@@ -13,11 +13,13 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   return {
     users: {
       /**
+       * ユーザ一覧取得
        * @returns Example response
        */
       get: (option?: { config?: T }) =>
         fetch<Methods0['get']['resBody'], BasicHeaders, Methods0['get']['status']>(prefix, PATH0, GET, option).json(),
       /**
+       * ユーザ一覧取得
        * @returns Example response
        */
       $get: (option?: { config?: T }) =>

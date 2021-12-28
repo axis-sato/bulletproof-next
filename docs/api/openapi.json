@@ -3,7 +3,8 @@
   "info": {
     "title": "Bulletproof Next",
     "version": "1.0",
-    "summary": "Bulletproof Next API"
+    "description": "Bulletproof Next API",
+    "contact": {}
   },
   "servers": [
     {
@@ -14,7 +15,7 @@
   "paths": {
     "/users": {
       "get": {
-        "summary": "ユーザ一覧取得",
+        "description": "ユーザ一覧取得",
         "tags": ["user"],
         "responses": {
           "200": {
@@ -100,7 +101,7 @@
               }
             },
             "examples": {
-              "example": {
+              "normal": {
                 "value": {
                   "users": [
                     {
@@ -143,5 +144,10 @@
         }
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "user"
+    }
+  ]
 }
