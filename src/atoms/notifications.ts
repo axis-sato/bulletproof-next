@@ -9,6 +9,7 @@ type Notification = {
 };
 
 const notificationsAtom = atom<Notification[]>([]);
+notificationsAtom.debugLabel = "notifications";
 
 export const useNotificationsAtom = () => {
   const [notifications, setNotifications] = useAtom(notificationsAtom);
